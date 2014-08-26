@@ -1,0 +1,39 @@
+﻿
+<div id="location-detail.html" type="text/ng-template">
+
+    <div class="modal">
+
+        <!-- Modal header bar -->
+        <ion-header-bar class="bar-secondary">
+            <h1 class="title">Edit Location - {{location.name}}</h1>
+            <button class="button button-clear button-positive" ng-click="closeLocationEditor('edit')">Cancel</button>
+        </ion-header-bar>
+
+        <!-- Modal content area -->
+        <ion-content>
+                <div class="list">
+                    <label class="item item-input">
+                        <input type="text" placeholder="Name" ng-model="location.name"/>
+                    </label>
+                    <label class="item item-input">
+                        <input type="text" placeholder="Address" ng-model="location.address">
+                    </label>
+                    <label class="item item-input">
+                        <input type="text" placeholder="Postcode" ng-model="location.postcode">
+                    </label>
+                    <label class="item item-input">
+                        <input type="text" placeholder="City" ng-model="location.city">
+                    </label>
+                </div>
+            
+                <div class="button-bar">
+                    <button class="button button-balanced" ng-click="updateLocation(location)">Update Location</button>
+                    <button class="button button-assertive" ng-click="deleteLocation(location.locationId)">Delete Location</button>
+                </div>
+
+        </ion-content>
+
+    </div>
+
+</div>
+

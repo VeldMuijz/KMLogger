@@ -1,0 +1,41 @@
+﻿
+    <div id="location-new.html" type="text/ng-template">
+
+        <div class="modal">
+
+            <!-- Modal header bar -->
+            <ion-header-bar class="bar-secondary">
+                <h1 class="title">New Location</h1>
+                <button class="button button-clear button-positive" ng-click="closeLocationEditor('new')">Cancel</button>
+
+            </ion-header-bar>
+
+            <!-- Modal content area -->
+            <ion-content>
+
+                <form ng-submit="createLocation(location)">
+                    <div class="list">
+                        <label class="item item-input">
+                            <input type="text" placeholder="Name" ng-model="location.name">
+                        </label>
+                        <label class="item item-input">
+                            <input type="text" placeholder="Address" ng-model="location.address">
+                        </label>
+                        <label class="item item-input">
+                            <input type="text" placeholder="Postcode" ng-model="location.postcode">
+                        </label>
+                        <label class="item item-input">
+                            <input type="text" placeholder="City" ng-model="location.city">
+                        </label>
+                    </div>
+                    <div class="padding">
+                        <button type="submit" class="button button-block button-positive">Save Location</button>
+                    </div>
+                </form>
+
+            </ion-content>
+
+        </div>
+
+    </div>
+

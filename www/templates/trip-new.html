@@ -1,0 +1,61 @@
+﻿<ion-view title="Log new trip">
+
+    <ion-content has-header="true" padding="true">
+        <div id="startLocation">
+            <div class="item item-divider">
+                Start Location
+            </div>
+            <label class="item item-input">
+                <span class="input-label">Start</span>
+                <input type="text" placeholder="Click to select location" ng-click="showLocationPicker('start')" ng-model="trip.startLocationName">
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">Date</span>
+                <input  type="date" ng-model="trip.startDate" />
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">Time</span>
+                <input type="time" ng-model="trip.startTime" />
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">KM Stand</span>
+                <input type="number" ng-model="trip.startKm" />
+            </label>
+
+        </div>
+        <div class="button-bar padding">
+            <button class="button button-positive icon-left ion-location" ng-click="showTracker()">Start GPS</button>
+            <button class="button button-energized icon-left ion-android-hand" ng-click="unhideDestination()">Log Manualy</button>
+        </div>
+        <div id="destination" class="ng-hide" ng-hide="destination">
+            <div class="item item-divider">
+                Destination
+            </div>
+            <label class="item item-input">
+                <span class="input-label">Destination</span>
+                <input type="text" placeholder="Click to select location" ng-click="showLocationPicker('end')" ng-model="trip.endLocationName">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Date</span>
+                <input type="date" ng-model="trip.endDate" />
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Time</span>
+                <input type="time"  ng-model="trip.endTime" />
+            </label>
+            <label class="item item-input">
+                <span class="input-label">KM Stand</span>
+                <input type="number" ng-model="trip.endKm" />
+            </label>
+            <div class="button-bar padding">
+                <button class="button button-positive" ng-click="saveTrip()">Save</button>
+                <button class="button button-assertive icon icon-left ion-trash-a" ng-click="discardTrip()">Discard</button>
+            </div>
+        </div>
+       
+
+    </ion-content>
+</ion-view>

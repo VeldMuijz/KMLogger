@@ -1,0 +1,16 @@
+﻿<ion-view title="Trips">
+    <ion-content class="has-header">
+        <ion-list can-swipe="true">
+            <ion-item ng-repeat="trip in trips" type="item-text-wrap" href="#/tab/trips/{{trip.Id}}">
+               {{trip.tripId}}: {{trip.startLocationName}}, {{trip.endLocationName}}, {{trip.distance}} km
+                <ion-option-button ng-click="editTrip({{trip.Id}})" class="button-info">
+                    Edit
+                </ion-option-button>
+                <ion-option-button ng-click="deleteTrip({{trip.Id}})" class="ion-minus-circled">
+                    Delete
+                </ion-option-button>
+                
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

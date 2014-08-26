@@ -1,0 +1,16 @@
+﻿<ion-view title="Locations">
+    <ion-content class="has-header">
+        <ion-list>
+            <ion-item ng-repeat="location in locations" ng-click="showEditLocation(location.locationId)">
+                <div><b>{{location.name}}</b></div>
+                <div>{{location.address}}, {{location.city}} </div>
+            </ion-item>
+        </ion-list>
+
+        <!-- New Location button-->
+        <button class="button button-block icon-left ion-plus-round button-positive button-block" ng-click="showNewLocation()">
+             Add Location
+        </button>
+        
+    </ion-content>
+</ion-view>

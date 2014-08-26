@@ -1,0 +1,22 @@
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes.dex : \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes\com\ionic\keyboard\IonicKeyboard$1.class \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes\com\ionic\keyboard\IonicKeyboard$2.class \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes\com\ionic\keyboard\IonicKeyboard.class \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes\com\ionicframework\deliverytrackerapp610146\BuildConfig.class \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes\com\ionicframework\deliverytrackerapp610146\DeliveryTrackerapp.class \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes\com\ionicframework\deliverytrackerapp610146\R$attr.class \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes\com\ionicframework\deliverytrackerapp610146\R$drawable.class \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes\com\ionicframework\deliverytrackerapp610146\R$string.class \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes\com\ionicframework\deliverytrackerapp610146\R$xml.class \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes\com\ionicframework\deliverytrackerapp610146\R.class \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes\nl\jeroenveldhuijzen\KMregistratie\BuildConfig.class \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes\nl\jeroenveldhuijzen\KMregistratie\DeliveryTrackerapp.class \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes\nl\jeroenveldhuijzen\KMregistratie\R$attr.class \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes\nl\jeroenveldhuijzen\KMregistratie\R$drawable.class \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes\nl\jeroenveldhuijzen\KMregistratie\R$string.class \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes\nl\jeroenveldhuijzen\KMregistratie\R$xml.class \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes\nl\jeroenveldhuijzen\KMregistratie\R.class \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes\org\apache\cordova\device\Device.class \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes\org\apache\cordova\networkinformation\NetworkManager$1.class \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\classes\org\apache\cordova\networkinformation\NetworkManager.class \
+D:\Dev\Mobile\KMLogger\platforms\android\ant-build\dexedLibs\classes-435a5824f1cc0f11cc1bd9d6cb406181.jar \

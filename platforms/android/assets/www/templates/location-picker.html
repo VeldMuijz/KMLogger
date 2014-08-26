@@ -1,0 +1,25 @@
+﻿
+<div id="location-picker.html" type="text/ng-template">
+    <div class="modal">
+        <!-- Modal header bar -->
+        <ion-header-bar class="bar-secondary">
+            <h1 class="title">Choose Location</h1>
+            <button class="button button-clear button-positive" ng-click="closeLocationPicker()">Cancel</button>
+
+        </ion-header-bar>
+        
+        <!-- Modal content area -->
+        <ion-content>
+            <ion-list>
+                <ion-item ng-repeat="location in locations" ng-click="selectLocation(location)">
+                    <b>{{location.name}}</b> - 
+                    {{location.address}}
+
+                </ion-item>
+            </ion-list>
+            <button class="button button-block button-positive" ng-click="showNewLocation()"> Add location</button>
+        </ion-content>
+    </div>
+
+
+</div>

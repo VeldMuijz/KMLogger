@@ -1,0 +1,45 @@
+﻿
+<div id="trackerModal.html" type="text/ng-template">
+
+    <div class="modal">
+
+        <!-- Modal header bar -->
+        <ion-header-bar class="bar-secondary">
+            <h1 class="title">GPS Tracker</h1>
+            <button class="button button-clear button-positive" ng-click="closeTracker()">Cancel</button>
+
+        </ion-header-bar>
+
+        <!-- Modal content area -->
+        <ion-content>
+           
+            <div class="content">
+                <input ng-model="currentPosition.lat"> </input>
+                <input ng-model="currentPosition.lon"> </input>
+                <input ng-model="currentPosition.timestamp"> </input>
+            </div>
+
+            <h3>{{currentAddress}}</h3>
+            
+            <div ng-switch="GPSActive">
+                <div ng-switch-when="true"><div ng-show="GPSActive" class=" padding icon ion-loading-c"></div></div>
+                <div ng-switch-when="false"><div><h4>{{GPSError}}</h4></div></div>
+            </div>   
+            
+            <div>Last successful sync: {{currentPosition.timestamp}}</div>
+           
+            
+            
+            
+            
+            <button ng-click="getAddress(currentPosition)">getAddress</button>
+
+            <button ng-click="getPosition()">getPosition</button>
+                    
+            
+        </ion-content>
+
+    </div>
+
+</div>
+
