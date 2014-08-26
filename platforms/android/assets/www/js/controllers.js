@@ -7,13 +7,15 @@ angular.module('starter.controllers', [])
 .controller('AccountCtrl', function ($scope) {
 })
 
-.controller('LocationCtrl', function ($scope, $ionicModal, $http, Locations) {
+.controller('LocationCtrl', function ($scope, $timeout, $ionicModal, $http, Locations) {
 
     $scope.locations = Locations.get(true);
     $scope.location = {};
     $scope.newLocationModal = null;
     $scope.editLocationModal = null;
     $scope.locationPicker = 'start';
+    $scope.error = false;
+    $scope.errorText = null;
 
 
     //Create Modals
@@ -51,7 +53,7 @@ angular.module('starter.controllers', [])
             Locations.remove(locationId);
 
             $scope.editLocationModal.hide();
-            $scope.location = Locations.get(true);
+            $scope.locations = Locations.get(true);
         } else {
             alert('Error: Cannot delete location without location id. LocationId given is: ' + locationId)
         }
@@ -61,16 +63,39 @@ angular.module('starter.controllers', [])
 
     // Create location
     $scope.createLocation = function (location) {
+
         if (Locations.get(true) != null) {
             $scope.locations = Locations.get(true);
         } else {
             $scope.locations = [];
         }
-        Locations.add(location);
 
-        $scope.newLocationModal.hide();
-        $scope.locations = Locations.get(true);
-        $scope.location = {};
+        var unique = true;
+        for(i=0; i < $scope.locations.length; i++){
+            var storedLocation = $scope.locations[i];
+            if (storedLocation.name === location.name && storedLocation.enabled) {
+                unique = false;
+                break;
+            };
+
+        }
+            
+
+        if (unique) {
+            Locations.add(location);
+            $scope.error = false;
+
+            $scope.newLocationModal.hide();
+            $scope.locations = Locations.get(true);
+            $scope.location = {};
+        } else {
+            //show error card
+            $scope.errorText = 'The name of the location has to be unique.'
+            $scope.error = true;
+            //hide the error message after 3 seconds
+            $timeout(function () { $scope.error = false }, 3000);
+        };
+
     };
 
     //Edit the location and update it in localStorage
@@ -83,6 +108,7 @@ angular.module('starter.controllers', [])
     // Close the new task modal
     $scope.closeLocationEditor = function (modal) {
         $scope.locations = Locations.get(true);
+        $scope.location = null;
         if (modal === 'edit') {
             $scope.editLocationModal.hide();
 
@@ -115,26 +141,38 @@ angular.module('starter.controllers', [])
         timestamp: 'not updated'
     };
     var test = null;
-    $scope.trip = {
 
-        //tripId: null,
+    if ($scope.trips != null) {
 
-        //startLocation: null,
-        //startLocationName: null,
-        //startDate: null,
-        //startTime: null,
-        //startKm: null,
+        var lastTrip = $scope.trips.length -1;
 
-        //endLocation: null,
-        //endLocationName: null;
-        //endDate: null,
-        //endTime: null,
-        //endKm: null,
+        $scope.trip = {
 
-        //distance: null,
-        //business: true,
-        //byGPS: false
-    };
+            //tripId: null,
+
+            startLocation: $scope.trips[lastTrip].endLocation,
+            startLocationName: $scope.trips[lastTrip].endLocationName,
+            startDate: new Date().dateToday("dd-mm-yyyy"),
+            startTime: new Date().timeNow("hh:mm"),
+            startKm: $scope.trips[lastTrip].endKm,
+
+            //endLocation: null,
+            //endLocationName: null;
+            //endDate: null,
+            //endTime: null,
+            //endKm: null,
+
+            //distance: null,
+            //business: true,
+            //byGPS: false
+        };
+    } else {
+        $scope.trip = null;
+
+    }
+
+
+
     $scope.destination = true;
 
     //Create Modal
@@ -235,7 +273,13 @@ angular.module('starter.controllers', [])
         Trips.add($scope.trip);
 
         $window.location.reload();
-    }
+    };
+
+
+    $scope.discardTrip = function () {
+        
+        $window.location.reload();
+    };
 
     function setCurrentPosition(location) {
         $scope.currentPosition.lat = location.coords.latitude;
@@ -272,17 +316,25 @@ angular.module('starter.controllers', [])
     $scope.showTracker = function () {
         //$scope.currentPosition = Position.getPosition();
         //$timeout(getPosition, 7000);
+        $scope.GPSActive = true;
         $timeout(function syncPosition() {
+            if ($scope.GPSActive === 'cancel') {
+
+                //stop the syncing.
+                return;
+            } else {
+                $scope.getPosition();
+                //run every 3 seconds
+                $timeout(syncPosition, 3000);
+            }
             
-            $scope.getPosition();
-
-
-            $timeout(syncPosition, 3000);
         }, 5000);
         $scope.trackerModal.show();
     };
 
     $scope.closeTracker = function () {
+        $scope.GPSActive = 'cancel';
+        $scope.unhideDestination(true);
         $scope.trackerModal.hide();
     };
 
@@ -321,7 +373,16 @@ angular.module('starter.controllers', [])
         $scope.location = {};
     };
 
-    $scope.unhideDestination = function () {
+    $scope.unhideDestination = function (gps) {
+        if (gps) {
+
+            var positions = $scope.positions;
+            alert(angular.toJson(positions));
+            $scope.trip.endDate = new Date().dateToday('dd-mm-yyyy');
+            $scope.trip.endTime = positions[positions.length -1].timestamp;
+            
+        }
+
         $scope.destination = false;
     }
 

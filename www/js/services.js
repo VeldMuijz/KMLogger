@@ -245,6 +245,8 @@ angular.module('starter.services', [])
 })
 
   .factory('Position', ['$q','$rootScope', '$window', 'geolocation_msgs','$http', function ($q, $rootScope, $window, geolocation_msgs, $http, $timeout) {
+
+      var opts = { enableHighAccuracy: true };
       return {
           getLocation: function (opts) {
               var deferred = $q.defer();

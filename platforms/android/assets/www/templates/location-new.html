@@ -13,6 +13,12 @@
             <!-- Modal content area -->
             <ion-content>
 
+                <div class="card" ng-show="error">
+                    <div class="item item-text-wrap assertive assertive-border">
+                        {{errorText}}
+                    </div>
+                </div>
+
                 <form ng-submit="createLocation(location)">
                     <div class="list">
                         <label class="item item-input">
